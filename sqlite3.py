@@ -114,6 +114,8 @@ class Cursor:
                 res.append(sqlite3_column_double(self.stmnt, i))
             elif t == SQLITE_TEXT:
                 res.append(sqlite3_column_text(self.stmnt, i))
+            elif t == SQLITE_NULL:
+                res.append(None)
             else:
                 raise NotImplementedError
         return tuple(res)
